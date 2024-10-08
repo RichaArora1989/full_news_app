@@ -51,12 +51,27 @@ export default function CustomNewsScreen() {
       <View
         style={styles.topButtonsContainer} testID="topButtonsContainer"
       >
-       
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
+          <Text>Back</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={handleToggleFavorite}
+          style={styles.favoriteButton}
+        >
+          <Text>{isFavourite ? "♥" : "♡"}</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Article Details */}
       <View style={styles.contentContainer} testID="contentContainer">
-      
+      <Text style={styles.articleTitle}>{article.title}</Text>
+<View style={styles.sectionContainer}>
+  <Text style={styles.sectionTitle}>Content</Text>
+  <Text style={styles.contentText}>{article.description}</Text>
+</View>
       </View>
     </ScrollView>
   );
